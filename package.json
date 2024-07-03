@@ -1,0 +1,26 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "sever.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node sever.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/the1411/The-hoc-Nodejs.git"
+    },
+    "keywords": [
+        "the"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/the1411/The-hoc-Nodejs/issues"
+    },
+    "homepage": "https://github.com/the1411/The-hoc-Nodejs#readme",
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}
