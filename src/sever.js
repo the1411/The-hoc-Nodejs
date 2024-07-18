@@ -26,6 +26,8 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const webRoute = require("./route/web");
+const { getHomepage, getAbc, getHome } = require("./controller/homeController");
 
 const configViewEngine = require("./config/viewEngine");
 const app = express();
@@ -39,10 +41,7 @@ configViewEngine(app);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-
-app.get("/home", (req, res) => {
-  res.render("sample.ejs");
-});
+app.use("/user", webRoute);
 
 // Thêm xử lý lỗi
 app.use((err, req, res, next) => {
