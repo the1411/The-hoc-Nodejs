@@ -1,13 +1,14 @@
 const express = require("express");
+const app = express();
 const {
-  getHomepage,
+  getHomePage,
   getAbc,
   getHome,
 } = require("../controller/homeController");
 
 const router = express.Router();
 
-router.get("/", getHomepage);
+router.get("/", getHomePage);
 
 router.get("/abc", getAbc);
 

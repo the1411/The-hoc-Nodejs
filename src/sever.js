@@ -27,13 +27,15 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const webRoute = require("./route/web");
-const { getHomepage, getAbc, getHome } = require("./controller/homeController");
+const { getHomePage, getAbc, getHome } = require("./controller/homeController");
+const connection = require("./config/database");
 
 const configViewEngine = require("./config/viewEngine");
 const app = express();
 const port = process.env.PORT || 8081; // Sử dụng cổng mặc định nếu biến môi trường không có
 const hostname = process.env.HOST_NAME || "localhost"; // Sử dụng hostname mặc định nếu biến môi trường không có
 
+app.use(express.static(path.join(__dirname, "public")));
 // Config template engine
 configViewEngine(app);
 
@@ -48,6 +50,12 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
+
+//simple query
+// connection.query("SELECT * FROM users", function (err, results, fields) {
+//   console.log("results:", results);
+//   // console.log("field:", fields);
+// });
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening at http://${hostname}:${port}`);
